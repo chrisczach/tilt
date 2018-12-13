@@ -1,18 +1,22 @@
 {
   "name": "tilt",
   "version": "0.1.0",
+  "homepage": "https://chrisczach.github.io/tilt/",
   "private": true,
   "dependencies": {
-    "gyronorm": "^2.0.6",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "@rehooks/device-orientation": "^1.0.0",
+    "gh-pages": "^2.0.1",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "react-scripts": "2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
