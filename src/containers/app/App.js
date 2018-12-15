@@ -13,16 +13,15 @@ class App extends Component {
   tiltHandler = e => {
     this.setState(state => ({
       x: e.gamma - state.xOffset,
-      y: e.beta - state.Offset
+      y: e.beta - state.yOffset
     }));
   };
 
   resetHandler = e => {
     this.setState(state => ({
-        xOffset: state.x - state.xOffset,
-        yOffset: state.y - state.yOffset
-      })
-    );
+      xOffset: state.x + state.xOffset,
+      yOffset: state.y + state.yOffset
+    }));
   };
 
   componentDidMount() {
@@ -41,10 +40,10 @@ class App extends Component {
     return (
       <>
         <p>Tilt Supported: {this.state.tiltSuppported ? 'true' : 'false'}</p>
-        <p>x Offset: {this.state.xOffset}</p>
-        <p>y Offset: {this.state.yOffset}</p>
-        <p>x: {this.state.x}</p>
-        <p>y: {this.state.y}</p>
+        <p>x Offset: {Math.round(this.state.xOffset)}</p>
+        <p>y Offset: {Math.round(this.state.yOffset)}</p>
+        <p>x: {Math.round(this.state.x)}</p>
+        <p>y: {Math.round(this.state.y)}</p>
         <div onClick={this.resetHandler}>RESET</div>
       </>
     );
