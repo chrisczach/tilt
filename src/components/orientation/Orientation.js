@@ -1,14 +1,15 @@
 import useDeviceOrientation from '@rehooks/device-orientation';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 const Orientation = () => {
   let value = useDeviceOrientation();
+  [verticalReset, setVerticalReset] = useState;
+  const vertical = Math.round(value.beta);
+  const horizontal = Math.round(value.gamma);
   return (
     <div>
-      <p>Absolute: {value.absolute || 'Device not supported'}</p>
-      <p>Alpha: {value.alpha || 'Device not supported'}</p>
-      <p>Beta: {value.beta || 'Device not supported'}</p>
-      <p>Gamma: {value.gamma || 'Device not supported'}</p>
+      <p>Vertical: {vertical}</p>
+      <p>Horizontal: {horizontal}</p>
     </div>
   );
 };
