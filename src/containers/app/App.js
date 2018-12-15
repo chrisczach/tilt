@@ -14,7 +14,7 @@ class App extends Component {
   tiltHandler = e => {
     this.setState(state => {
       const x = Math.round(Math.min(Math.max(e.beta, -90), 90)) - state.max;
-      let y = Math.round(e.gamma) - y.xOffset;
+      let y = Math.round(e.gamma) - state.yOffset;
       if ((y < 0 && state.y > 0) || (y > 0 && state.y < 0)) {
         y = state.y
       }
