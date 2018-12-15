@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
+import Dot from '../../components/dot/dot'
 
 class App extends Component {
   state = {
@@ -12,8 +13,8 @@ class App extends Component {
 
   tiltHandler = e => {
     this.setState(state => ({
-      x: e.gamma - state.xOffset,
-      y: e.beta - state.yOffset
+      x: e.beta - state.xOffset,
+      y: e.gamma - state.yOffset
     }));
   };
 
@@ -45,6 +46,7 @@ class App extends Component {
         <p>x: {Math.round(this.state.x)}</p>
         <p>y: {Math.round(this.state.y)}</p>
         <div onClick={this.resetHandler}>RESET</div>
+        <Dot x={this.state.x} y={this.state.y}/>
       </>
     );
   }
