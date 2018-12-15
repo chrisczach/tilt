@@ -4,15 +4,27 @@ import classes from './App.module.css';
 class App extends Component {
   state = {
     tiltSuppported: false,
-    xOffSet: 0,
-    yOffSet: 0,
+    xOffset: 0,
+    yOffset: 0,
     x: 0,
-    y: 0,
-  }
+    y: 0
+  };
 
-  tiltHandler = (e) => {
-    this.setState({x: e.beta, y: e.gamma})
-  }
+  tiltHandler = e => {
+    this.setState(state => ({
+      x: e.gamma - state.xOffset,
+      y: e.beta - state.Offset
+    }));
+  };
+
+  resetHandler = e => {
+    this.setState(
+      (state = {
+        xOffset: state.x - state.xOffset,
+        yOffset: state.y - state.yOffset
+      })
+    );
+  };
 
   componentDidMount() {
     if (window.DeviceOrientationEvent) {
@@ -22,19 +34,21 @@ class App extends Component {
     }
   }
 
-  componentWillUnmount() { 
-    window.removeEventListener('deviceorientation',this.tiltHandler,false)
+  componentWillUnmount() {
+    window.removeEventListener('deviceorientation', this.tiltHandler, false);
   }
 
   render() {
     return (
-      <><p>Tilt Supported: {this.state.tiltSuppported ? 'true' : 'false'}</p>
-        <p>X: {this.state.x}</p>
-      <p>Y: {this.state.y}</p>
+      <>
+        <p>Tilt Supported: {this.state.tiltSuppported ? 'true' : 'false'}</p>
+        <p>x Offset: {this.state.xOffset}</p>
+        <p>y Offset: {this.state.yOffset}</p>
+        <p>x: {this.state.x}</p>
+        <p>y: {this.state.y}</p>
+        <div onClick={this.resetHandler}>RESET</div>
       </>
-    )
-      
-  
+    );
   }
 }
 
