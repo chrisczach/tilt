@@ -1,7 +1,7 @@
 {
   "name": "tilt",
   "version": "0.1.0",
-  "homepage": "https://chrisczach.github.io/tilt/",
+  "homepage": "https://tilt.chrisczach.com",
   "private": true,
   "dependencies": {
     "@rehooks/device-orientation": "^1.0.0",
