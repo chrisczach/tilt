@@ -7,7 +7,7 @@ const Dot = (props) => {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: `translate(calc(-50% + ${y}px), -50% + ${y}px)`
+    transform: `translate(calc(-50% + ${y}px), -50% + ${x}px)`
   }
   return (
     <div style={style}>{x} {y}</div>
