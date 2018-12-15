@@ -12,10 +12,15 @@ class App extends Component {
   };
 
   tiltHandler = e => {
-    this.setState(state => ({
-      x: e.beta - state.xOffset,
-      y: e.gamma - state.yOffset
-    }));
+    this.setState(state => {
+      const x = Math.round(Math.min(Math.max(e.beta, -90), 90)) - state.max;
+      let y = Math.round(e.gamma) - y.xOffset;
+      if ((y < 0 && state.y > 0) || (y > 0 && state.y < 0)) {
+        y = state.y
+      }
+
+      return {x,y}
+    });
   };
 
   resetHandler = e => {
