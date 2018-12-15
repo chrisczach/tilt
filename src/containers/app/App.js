@@ -18,8 +18,7 @@ class App extends Component {
   };
 
   resetHandler = e => {
-    this.setState(
-      (state = {
+    this.setState(state => ({
         xOffset: state.x - state.xOffset,
         yOffset: state.y - state.yOffset
       })
