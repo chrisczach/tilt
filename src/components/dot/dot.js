@@ -5,9 +5,9 @@ const Dot = (props) => {
   const y = Math.round(props.y);
   const style = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: `translate(calc(-50% + ${y}px), -50% + ${x}px)`
+    top: `calc(50% - ${x}px)`,
+    left: `calc(50% - ${y}px)`,
+    transform: 'translate(-50%, -50%)'
   }
   return (
     <div style={style}>{x} {y}</div>
