@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   tiltHandler = (e) => {
-    this.setState({x: e.betta, y: e.gamma})
+    this.setState({x: e.beta, y: e.gamma})
   }
 
   componentDidMount() {
